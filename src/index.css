@@ -1,0 +1,174 @@
+
+.fire-container {
+    position: relative;
+    width: 150px;  /* Reduced from 300px */
+    height: 200px;  /* Reduced from 400px */
+    display: flex;
+    justify-content: center;
+  }
+
+  .flames-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 80px;  /* Reduced from 160px */
+    height: 100px;  /* Reduced from 200px */
+    transform-origin: center bottom;
+  }
+
+  .flame {
+    position: absolute;
+    /* bottom: 0; */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: #FF5722;
+    filter: blur(1px);
+  }
+
+  .flame-yellow {
+    background: linear-gradient(to top, #FF5722, #FFC107);
+    height: 70px;  /* Reduced from 140px */
+    width: 30px;  /* Reduced from 60px */
+    animation: flameFlicker 2s infinite alternate;
+    z-index: 5;
+  }
+
+  .flame-orange {
+    background: linear-gradient(to top, #FF5722, #FF9800);
+    height: 60px;  /* Reduced from 120px */
+    width: 40px;  /* Reduced from 80px */
+    animation: flameFlicker 3s 0.2s infinite alternate;
+    z-index: 4;
+  }
+
+  .flame-red {
+    background: linear-gradient(to top, #BF360C, #FF5722);
+    height: 50px;  /* Reduced from 100px */
+    width: 50px;  /* Reduced from 100px */
+    animation: flameFlicker 2.5s 0.4s infinite alternate;
+    z-index: 3;
+  }
+
+  .flame-blue {
+    background: linear-gradient(to top, #0D47A1, #2196F3);
+    height: 35px;  /* Reduced from 70px */
+    width: 20px;  /* Reduced from 40px */
+    opacity: 0.7;
+    filter: blur(1px);  /* Reduced blur */
+    animation: blueFlicker 2s 0.1s infinite alternate;
+    z-index: 6;
+  }
+
+  .flame-core {
+    background: linear-gradient(to top, #FFFFFF, #FFEB3B);
+    height: 40px;  /* Reduced from 80px */
+    width: 15px;  /* Reduced from 30px */
+    opacity: 0.9;
+    filter: blur(1px);  /* Reduced blur */
+    animation: coreFlicker 1.5s 0.3s infinite alternate;
+    z-index: 7;
+  }
+
+  .ember {
+    position: absolute;
+    /* bottom: 40px;  Reduced from 80px */
+    width: 3px;  /* Reduced from 6px */
+    height: 3px;  /* Reduced from 6px */
+    border-radius: 50%;
+    background: #FFC107;
+    z-index: 10;
+    opacity: 0;
+    animation: emberRise 2s ease-out infinite;
+  }
+
+  .ember:nth-child(1) {
+    left: 30px;  /* Reduced from 60px */
+    animation-delay: 0.1s;
+  }
+
+  .ember:nth-child(2) {
+    left: 50px;  /* Reduced from 100px */
+    animation-delay: 0.6s;
+  }
+
+  .ember:nth-child(3) {
+    left: 40px;  /* Reduced from 80px */
+    animation-delay: 1.1s;
+  }
+
+  .ember:nth-child(4) {
+    left: 35px;  /* Reduced from 70px */
+    animation-delay: 1.6s;
+  }
+
+  .ember:nth-child(5) {
+    left: 45px;  /* Reduced from 90px */
+    animation-delay: 0.4s;
+  }
+
+
+  @keyframes flameFlicker {
+    0%, 100% {
+      border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
+      transform: translateX(-50%) scaleY(1) scaleX(1);
+    }
+    25% {
+      border-radius: 40% 60% 30% 40% / 60% 60% 40% 40%;
+      transform: translateX(-55%) scaleY(1.05) scaleX(0.95);
+    }
+    50% {
+      border-radius: 50% 50% 20% 40% / 55% 65% 35% 45%;
+      transform: translateX(-50%) scaleY(0.95) scaleX(1.05);
+    }
+    75% {
+      border-radius: 60% 40% 40% 20% / 65% 55% 45% 35%;
+      transform: translateX(-45%) scaleY(1.05) scaleX(1);
+    }
+  }
+
+  @keyframes blueFlicker {
+    0%, 100% {
+      opacity: 0.7;
+      transform: translateX(-50%) scaleY(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(-50%) scaleY(1.1);
+    }
+  }
+
+  @keyframes coreFlicker {
+    0%, 100% {
+      opacity: 0.9;
+      transform: translateX(-50%) scaleY(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-50%) scaleY(1.15);
+    }
+  }
+
+  @keyframes emberRise {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-10px + 20px * var(--random, 0.5)), -75px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes glowPulse {
+    0% {
+      opacity: 0.6;
+      width: 75px;
+    }
+    100% {
+      opacity: 0.8;
+      width: 80px;
+    }
+  }
